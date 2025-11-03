@@ -1,5 +1,4 @@
 <?php
-$file = $_GET['file'];
 
 session_start();
 
@@ -12,3 +11,5 @@ header('Content-Type: text/plain');
 header('Content-Disposition: attachment; filename="ascii_art.txt"');
 echo $ascii;
 exit;
+
+?>
