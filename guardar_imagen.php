@@ -10,7 +10,7 @@ $img = imagecreatefrompng($_FILES['imagen']['tmp_name']);
 $w = imagesx($img); //ancho
 $h = imagesy($img); //alto
 $scale = 6;
-$fixAncho = 2.2; // ancho * 2 ya que los caracteres suelen ser el doble de alto que de ancho
+$fixAncho = 2.4; // ancho * 2 ya que los caracteres suelen ser el doble de alto que de ancho
 
 $ascii = '';
 
@@ -45,5 +45,52 @@ imagedestroy($img);
 
 // Guardamos el resultado en la sesión
 $_SESSION['ascii_result'] = $ascii;
+?>
 
-echo "<a href='descargar_ascii.php'> Descargar Archivo </a>";
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Conversor Image to ASCII art</title>
+
+    <!-- CSS de Materialize -->
+    <link rel="stylesheet" href="css/materialize.min.css" />
+
+    <!-- JS de Materialize -->
+    <script src="js/materialize.min.js" defer></script>
+
+    <!-- CSS Normalize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- CSS custom -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav class="blue darken-3">
+            <div class="nav-wrapper container">
+                <a href="./" class="brand-logo">ASCII Converter</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container center-align">
+            <a href="./descargar_ascii.php" class="btn green waves-effect waves-light">Descargar ASCII</a>
+            <a href="./" class="btn blue waves-effect waves-light">Volver</a>
+            <pre><?= htmlspecialchars($_SESSION['ascii_result']); ?></pre>
+        </div>
+    </main>
+
+    <footer class="page-footer blue darken-3">
+        <div class="footer-copyright center-align blue darken-3">
+            <div class="container">
+                © 2025 Conversor ASCII | R. Luengo
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

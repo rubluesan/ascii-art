@@ -1,15 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Conversor Image to ASCII art</title>
+
+    <!-- CSS de Materialize -->
+    <link rel="stylesheet" href="css/materialize.min.css" />
+
+    <!-- JS de Materialize -->
+    <script src="js/materialize.min.js" defer></script>
+
+    <!-- CSS Normalize -->
+    <link rel="stylesheet" href="./css/normalize.css">
+    <!-- CSS custom -->
+    <link rel="stylesheet" href="./css/styles.css">
 </head>
+
 <body>
-    <h1>Convertir una imagen a ASCII art</h1>
-    <form action="guardar_imagen.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="imagen" id="" accept=".jpg, .png, image/jpeg">
-        <input type="submit" value="Convertir">
-    </form>
+    <header>
+        <nav class="blue darken-3">
+            <div class="nav-wrapper container">
+                <a href="#" class="brand-logo">ASCII Converter</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="card-panel z-depth-3 center-align">
+                <h4 class="center-align">Convertir una imagen a ASCII art</h4>
+                <form action="guardar_imagen.php" method="post" enctype="multipart/form-data">
+                    <div class="file-field input-field">
+                        <div class="btn blue darken-2">
+                            <span>Seleccionar imagen</span>
+                            <input type="file" name="imagen" accept=".jpg, .png, image/jpeg" required />
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text"
+                                placeholder="Sube una imagen en formato JPG o PNG" />
+                        </div>
+                    </div>
+                    <div class="center-align">
+                        <button type="submit" class="btn-large waves-effect waves-light blue">
+                            Convertir
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer blue darken-3">
+        <div class="footer-copyright center-align blue darken-3">
+            <div class="container">
+                © 2025 Conversor ASCII | R. Luengo
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
