@@ -1,16 +1,14 @@
 <?php
 $file = $_GET['file'];
 
-if (file_exists($file)) {
-    header('Content-Description: File Transfer');
-    header('Content-Type: text/plain');
-    header('Content-Disposition: attachment; filename="' . basename($file) . '"');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($file));
-    echo file_get_contents($file);
-    exit;
-} else {
-    echo "El archivo no existe.";
-}
+session_start();
+
+$ascii = $_SESSION['ascii_result'];
+
+// Limpiamos la sesión después de la descarga
+unset($_SESSION['ascii_result']);
+
+header('Content-Type: text/plain');
+header('Content-Disposition: attachment; filename="ascii_art.txt"');
+echo $ascii;
+exit;
