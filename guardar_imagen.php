@@ -6,7 +6,7 @@ session_start();
 //imagen que queremos leer (hay que tener gd.lib instalada y activa)
 // Soporte para JPG y PNG
 $info = getimagesize($_FILES['imagen']['tmp_name']);
-if ($info['mime'] == 'image/jpeg') {
+if ($info['mime'] == 'image/jpeg' || $info['mime'] == 'image/jpg') {
     $img = imagecreatefromjpeg($_FILES['imagen']['tmp_name']);
 } else {
     $img = imagecreatefrompng($_FILES['imagen']['tmp_name']);
