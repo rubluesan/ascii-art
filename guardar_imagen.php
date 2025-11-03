@@ -36,10 +36,10 @@ for ($y = 0; $y < $h; $y += $scale * $fixAncho) {
         $luminosidad = 0.299 * $r + 0.587 * $g + 0.114 * $b;
 
         //Elegir el caracter según la luminosidad del pixel y escribir en el fichero
-        if ($luminosidad <= 60) $caracter = " ";
-        elseif ($luminosidad <= 120) $caracter = ".";
-        elseif ($luminosidad <= 180) $caracter = "o";
-        else $caracter = "@";
+        if ($luminosidad <= 60) $caracter = "@";
+        elseif ($luminosidad <= 120) $caracter = "o";
+        elseif ($luminosidad <= 180) $caracter = ".";
+        else $caracter = " ";
 
         $ascii .= $caracter;
     }
