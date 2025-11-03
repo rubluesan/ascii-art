@@ -4,7 +4,13 @@
 session_start();
 
 //imagen que queremos leer (hay que tener gd.lib instalada y activa)
-$img = imagecreatefrompng($_FILES['imagen']['tmp_name']);
+// Soporte para JPG y PNG
+$info = getimagesize($_FILES['imagen']['tmp_name']);
+if ($info['mime'] == 'image/jpeg') {
+    $img = imagecreatefromjpeg($_FILES['imagen']['tmp_name']);
+} else {
+    $img = imagecreatefrompng($_FILES['imagen']['tmp_name']);
+}
 
 //Obtenemos el tamaño
 $w = imagesx($img); //ancho
